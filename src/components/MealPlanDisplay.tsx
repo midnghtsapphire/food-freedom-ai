@@ -90,9 +90,9 @@ const MealPlanDisplay = ({ mealPlan }: MealPlanDisplayProps) => {
 
   return (
     <>
-      <section className="py-20 px-4 bg-gradient-to-b from-background to-secondary/20">
+      <section className="py-20 px-4 bg-gradient-to-b from-background to-secondary/20 print:py-0">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-8 space-y-4">
+          <div className="text-center mb-8 space-y-4 print:hidden">
             <h2 className="text-4xl md:text-5xl font-bold">
               Your Personalized 7-Day Meal Plan
             </h2>
@@ -110,8 +110,8 @@ const MealPlanDisplay = ({ mealPlan }: MealPlanDisplayProps) => {
             </Button>
           </div>
 
-          {/* Day Navigation */}
-          <div className="flex items-center justify-between mb-8 bg-card p-4 rounded-lg border">
+          {/* Day Navigation - Hidden in Print */}
+          <div className="flex items-center justify-between mb-8 bg-card p-4 rounded-lg border print:hidden">
             <Button
               variant="outline"
               size="icon"
@@ -136,7 +136,8 @@ const MealPlanDisplay = ({ mealPlan }: MealPlanDisplayProps) => {
             </Button>
           </div>
 
-          <div className="space-y-12">
+          {/* Screen View - Single Day */}
+          <div className="space-y-12 print:hidden">
             {/* Breakfast */}
             <div>
               <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -174,6 +175,149 @@ const MealPlanDisplay = ({ mealPlan }: MealPlanDisplayProps) => {
             )}
           </div>
 
+          {/* Print View - All 7 Days with Full Details */}
+          <div className="hidden print:block">
+            <h1 className="text-3xl font-bold text-center mb-8">7-Day Meal Plan</h1>
+            {mealPlan.days.map((dayPlan, dayIndex) => (
+              <div key={dayIndex} className="mb-12 page-break-inside-avoid">
+                <h2 className="text-2xl font-bold mb-6 pb-2 border-b-2 border-primary">
+                  {dayNames[dayIndex]} - Day {dayIndex + 1}
+                </h2>
+
+                {/* Breakfast */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-3">☀️ Breakfast: {dayPlan.breakfast.name}</h3>
+                  <p className="text-sm mb-2">{dayPlan.breakfast.description}</p>
+                  <div className="flex gap-4 text-sm mb-3">
+                    <span>🔥 {dayPlan.breakfast.calories} cal</span>
+                    <span>⏱️ {dayPlan.breakfast.prepTime} min</span>
+                    <span>👥 {dayPlan.breakfast.servings} serving(s)</span>
+                  </div>
+                  {dayPlan.breakfast.ingredients && dayPlan.breakfast.ingredients.length > 0 && (
+                    <div className="mb-2">
+                      <p className="font-semibold text-sm">Ingredients:</p>
+                      <ul className="list-disc list-inside text-sm ml-2">
+                        {dayPlan.breakfast.ingredients.map((ing, i) => (
+                          <li key={i}>{ing}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {dayPlan.breakfast.instructions && dayPlan.breakfast.instructions.length > 0 && (
+                    <div>
+                      <p className="font-semibold text-sm">Instructions:</p>
+                      <ol className="list-decimal list-inside text-sm ml-2">
+                        {dayPlan.breakfast.instructions.map((step, i) => (
+                          <li key={i} className="mb-1">{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+                </div>
+
+                {/* Lunch */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-3">🌤️ Lunch: {dayPlan.lunch.name}</h3>
+                  <p className="text-sm mb-2">{dayPlan.lunch.description}</p>
+                  <div className="flex gap-4 text-sm mb-3">
+                    <span>🔥 {dayPlan.lunch.calories} cal</span>
+                    <span>⏱️ {dayPlan.lunch.prepTime} min</span>
+                    <span>👥 {dayPlan.lunch.servings} serving(s)</span>
+                  </div>
+                  {dayPlan.lunch.ingredients && dayPlan.lunch.ingredients.length > 0 && (
+                    <div className="mb-2">
+                      <p className="font-semibold text-sm">Ingredients:</p>
+                      <ul className="list-disc list-inside text-sm ml-2">
+                        {dayPlan.lunch.ingredients.map((ing, i) => (
+                          <li key={i}>{ing}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {dayPlan.lunch.instructions && dayPlan.lunch.instructions.length > 0 && (
+                    <div>
+                      <p className="font-semibold text-sm">Instructions:</p>
+                      <ol className="list-decimal list-inside text-sm ml-2">
+                        {dayPlan.lunch.instructions.map((step, i) => (
+                          <li key={i} className="mb-1">{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+                </div>
+
+                {/* Dinner */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-3">🌙 Dinner: {dayPlan.dinner.name}</h3>
+                  <p className="text-sm mb-2">{dayPlan.dinner.description}</p>
+                  <div className="flex gap-4 text-sm mb-3">
+                    <span>🔥 {dayPlan.dinner.calories} cal</span>
+                    <span>⏱️ {dayPlan.dinner.prepTime} min</span>
+                    <span>👥 {dayPlan.dinner.servings} serving(s)</span>
+                  </div>
+                  {dayPlan.dinner.ingredients && dayPlan.dinner.ingredients.length > 0 && (
+                    <div className="mb-2">
+                      <p className="font-semibold text-sm">Ingredients:</p>
+                      <ul className="list-disc list-inside text-sm ml-2">
+                        {dayPlan.dinner.ingredients.map((ing, i) => (
+                          <li key={i}>{ing}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {dayPlan.dinner.instructions && dayPlan.dinner.instructions.length > 0 && (
+                    <div>
+                      <p className="font-semibold text-sm">Instructions:</p>
+                      <ol className="list-decimal list-inside text-sm ml-2">
+                        {dayPlan.dinner.instructions.map((step, i) => (
+                          <li key={i} className="mb-1">{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+                </div>
+
+                {/* Snacks */}
+                {dayPlan.snacks.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-3">🍎 Snacks</h3>
+                    {dayPlan.snacks.map((snack, snackIndex) => (
+                      <div key={snackIndex} className="mb-4 ml-4">
+                        <h4 className="font-semibold text-sm mb-1">{snack.name}</h4>
+                        <p className="text-sm mb-2">{snack.description}</p>
+                        <div className="flex gap-4 text-sm mb-2">
+                          <span>🔥 {snack.calories} cal</span>
+                          <span>⏱️ {snack.prepTime} min</span>
+                          <span>👥 {snack.servings} serving(s)</span>
+                        </div>
+                        {snack.ingredients && snack.ingredients.length > 0 && (
+                          <div className="mb-2">
+                            <p className="font-semibold text-xs">Ingredients:</p>
+                            <ul className="list-disc list-inside text-xs ml-2">
+                              {snack.ingredients.map((ing, i) => (
+                                <li key={i}>{ing}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {snack.instructions && snack.instructions.length > 0 && (
+                          <div>
+                            <p className="font-semibold text-xs">Instructions:</p>
+                            <ol className="list-decimal list-inside text-xs ml-2">
+                              {snack.instructions.map((step, i) => (
+                                <li key={i} className="mb-1">{step}</li>
+                              ))}
+                            </ol>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
           {/* Week Overview */}
           <div className="mt-12 print:hidden">
             <h3 className="text-xl font-semibold mb-4">Week at a Glance</h3>
@@ -204,6 +348,10 @@ const MealPlanDisplay = ({ mealPlan }: MealPlanDisplayProps) => {
         @media print {
           .print\\:hidden {
             display: none !important;
+          }
+          .page-break-inside-avoid {
+            page-break-inside: avoid;
+            break-inside: avoid;
           }
         }
       `}</style>

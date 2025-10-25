@@ -133,7 +133,7 @@ const DietaryRestrictions = ({ onGeneratePlan, isGenerating }: DietaryRestrictio
           {categories.map(category => (
             <Card key={category} className="p-6 shadow-soft hover:shadow-medium transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4">{getCategoryTitle(category)}</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {restrictions
                   .filter(r => r.category === category)
                   .map(restriction => (
@@ -141,7 +141,7 @@ const DietaryRestrictions = ({ onGeneratePlan, isGenerating }: DietaryRestrictio
                       key={restriction.id}
                       onClick={() => toggleRestriction(restriction.id)}
                       className={`
-                        flex items-center space-x-3 p-4 rounded-lg border-2 cursor-pointer
+                        flex items-center space-x-3 p-3 rounded-lg border-2 cursor-pointer
                         transition-all duration-200
                         ${selected.includes(restriction.id)
                           ? 'border-primary bg-primary/5 shadow-soft'
@@ -152,8 +152,9 @@ const DietaryRestrictions = ({ onGeneratePlan, isGenerating }: DietaryRestrictio
                       <Checkbox 
                         checked={selected.includes(restriction.id)}
                         onCheckedChange={() => toggleRestriction(restriction.id)}
+                        className="shrink-0"
                       />
-                      <label className="text-sm font-medium cursor-pointer flex-1">
+                      <label className="text-sm font-medium cursor-pointer flex-1 leading-tight break-words">
                         {restriction.label}
                       </label>
                     </div>

@@ -152,6 +152,7 @@ const DietaryRestrictions = ({ onGeneratePlan, isGenerating }: DietaryRestrictio
                       <Checkbox 
                         checked={selected.includes(restriction.id)}
                         onCheckedChange={() => toggleRestriction(restriction.id)}
+                        onClick={(e) => e.stopPropagation()}
                         className="shrink-0"
                       />
                       <label className="text-sm font-medium cursor-pointer flex-1 leading-tight break-words">

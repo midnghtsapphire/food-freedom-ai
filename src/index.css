@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 142 15% 95%;
     --muted-foreground: 142 15% 45%;
 
-    --accent: 25 95% 53%;
+    --accent: 25 95% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -114,5 +114,29 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1cm;
+    size: portrait;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  header, nav, button, .print\:hidden {
+    display: none !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  .container {
+    max-width: 100% !important;
   }
 }

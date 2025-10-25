@@ -20,6 +20,11 @@ const restrictions: Restriction[] = [
   { id: "shellfish", label: "Shellfish", category: "allergy" },
   { id: "eggs", label: "Eggs", category: "allergy" },
   { id: "soy", label: "Soy", category: "allergy" },
+  { id: "fish", label: "Fish", category: "allergy" },
+  { id: "sesame", label: "Sesame", category: "allergy" },
+  { id: "mustard", label: "Mustard", category: "allergy" },
+  { id: "sulfites", label: "Sulfites", category: "allergy" },
+  { id: "corn", label: "Corn", category: "allergy" },
   
   // Medical Conditions
   { id: "diabetes", label: "Diabetes", category: "medical" },

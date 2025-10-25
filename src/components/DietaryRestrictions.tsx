@@ -25,6 +25,10 @@ const restrictions: Restriction[] = [
   { id: "mustard", label: "Mustard", category: "allergy" },
   { id: "sulfites", label: "Sulfites", category: "allergy" },
   { id: "corn", label: "Corn", category: "allergy" },
+  { id: "wheat", label: "Wheat", category: "allergy" },
+  { id: "nightshades", label: "Nightshades", category: "allergy" },
+  { id: "citrus", label: "Citrus Fruits", category: "allergy" },
+  { id: "coconut", label: "Coconut", category: "allergy" },
   
   // Medical Conditions
   { id: "diabetes", label: "Diabetes", category: "medical" },
@@ -32,12 +36,24 @@ const restrictions: Restriction[] = [
   { id: "ibs", label: "IBS", category: "medical" },
   { id: "celiac", label: "Celiac Disease", category: "medical" },
   { id: "kidney", label: "Kidney Disease", category: "medical" },
+  { id: "hypertension", label: "High Blood Pressure", category: "medical" },
+  { id: "gerd", label: "GERD/Acid Reflux", category: "medical" },
+  { id: "gout", label: "Gout", category: "medical" },
+  { id: "lactose", label: "Lactose Intolerance", category: "medical" },
+  { id: "histamine", label: "Histamine Intolerance", category: "medical" },
   
   // Preferences
   { id: "vegan", label: "Vegan", category: "preference" },
   { id: "vegetarian", label: "Vegetarian", category: "preference" },
+  { id: "pescatarian", label: "Pescatarian", category: "preference" },
   { id: "keto", label: "Keto", category: "preference" },
   { id: "paleo", label: "Paleo", category: "preference" },
+  { id: "lowcarb", label: "Low-Carb", category: "preference" },
+  { id: "highprotein", label: "High-Protein", category: "preference" },
+  { id: "whole30", label: "Whole30", category: "preference" },
+  { id: "mediterranean", label: "Mediterranean", category: "preference" },
+  { id: "noredmeat", label: "No Red Meat", category: "preference" },
+  { id: "organic", label: "Organic Only", category: "preference" },
   { id: "halal", label: "Halal", category: "preference" },
   { id: "kosher", label: "Kosher", category: "preference" },
 ];

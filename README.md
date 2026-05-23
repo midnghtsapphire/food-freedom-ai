@@ -4,6 +4,7 @@ AI-powered nutrition and meal planning
 
 ## Features
 
+- ✅ Vite + React + TypeScript frontend
 - ✅ FastAPI backend with full REST API
 - ✅ PostgreSQL database with SQLAlchemy ORM
 - ✅ JWT authentication + Google OAuth
@@ -16,20 +17,29 @@ AI-powered nutrition and meal planning
 
 ### Prerequisites
 - Docker and Docker Compose
+- Node.js 18+ and npm
 - Python 3.11+ (for local development)
 
 ### Setup
 
 1. Clone the repository
-2. Copy `.env.example` to `.env` and fill in your credentials
-3. Start with Docker Compose:
+2. Copy `.env.example` to `.env` and fill in your credentials (do not commit `.env`)
+3. Start the backend (API + Postgres + Redis) with Docker Compose:
 
 ```bash
 docker-compose up -d
 ```
 
-4. Access the API at `http://localhost:8004`
-5. API docs at `http://localhost:8004/docs`
+4. Start the frontend:
+
+```bash
+npm ci
+npm run dev
+```
+
+5. Access the API at `http://localhost:8004`
+6. API docs at `http://localhost:8004/docs`
+7. Frontend dev server at `http://localhost:5173`
 
 ### Local Development
 
@@ -56,12 +66,42 @@ uvicorn server.main:app --reload --port 8004
 
 See `.env.example` for all required environment variables.
 
+### Frontend (Vite)
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+
 ### Stripe Dual Mode
 
 The app supports both Stripe test and live modes. Set `STRIPE_MODE=test` or `STRIPE_MODE=live` in your `.env` file.
 
+## revvel-standards Flow
+
+This repository now includes a revvel-standards baseline so delivery can proceed without documentation or quality gates blocking progress:
+
+- `CHANGELOG.md`
+- `DEPLOYMENT_GUIDE.md`
+- `GO_TO_MARKET.md`
+- `RESEARCH_ENGINE.md`
+- `BRAND_GUIDELINES.md`
+- `SECURITY.md`
+- standards check script: `scripts/validate-standards.js`
+
+Run baseline validation:
+
+```bash
+npm run validate:standards
+```
+
+The default `npm test` command now includes this standards validation.
+
+## Vercel Deployment
+
+Deploy preview/production frontend builds to Vercel (see `DEPLOYMENT_GUIDE.md` for the full deployment automation flow).
+
 ## Tech Stack
 
+- **Frontend:** Vite, React 18, TypeScript, Tailwind (shadcn/ui)
 - **Backend:** FastAPI, Python 3.11
 - **Database:** PostgreSQL 15
 - **Cache:** Redis 7

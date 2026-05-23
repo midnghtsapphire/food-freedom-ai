@@ -77,7 +77,7 @@ The app supports both Stripe test and live modes. Set `STRIPE_MODE=test` or `STR
 
 ## revvel-standards Flow
 
-This repository now includes a revvel-standards baseline so delivery can keep moving without documentation/quality gates stalling:
+This repository now includes a revvel-standards baseline so delivery can proceed without documentation or quality gates blocking progress:
 
 - `CHANGELOG.md`
 - `DEPLOYMENT_GUIDE.md`

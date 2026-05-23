@@ -94,7 +94,7 @@ npm run validate:standards
 
 The default `npm test` command now includes this standards validation.
 
-### Vercel Deployment
+## Vercel Deployment
 
 Deploy preview/production frontend builds to Vercel (see `DEPLOYMENT_GUIDE.md` for the full deployment automation flow).
 

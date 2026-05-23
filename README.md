@@ -82,6 +82,7 @@ This repository now includes a revvel-standards baseline so delivery can proceed
 - `CHANGELOG.md`
 - `DEPLOYMENT_GUIDE.md`
 - `GO_TO_MARKET.md`
+- `RESEARCH_ENGINE.md`
 - `BRAND_GUIDELINES.md`
 - `SECURITY.md`
 - standards check script: `scripts/validate-standards.js`

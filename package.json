@@ -8,7 +8,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "test": "npm run lint && npm run build",
+    "validate:standards": "node scripts/validate-standards.js",
+    "test:baseline": "npm run validate:standards",
+    "test": "npm run lint && npm run build && npm run test:baseline",
     "preview": "vite preview"
   },
   "dependencies": {

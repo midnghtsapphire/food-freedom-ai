@@ -75,6 +75,29 @@ See `.env.example` for all required environment variables.
 
 The app supports both Stripe test and live modes. Set `STRIPE_MODE=test` or `STRIPE_MODE=live` in your `.env` file.
 
+## revvel-standards Flow
+
+This repository now includes a revvel-standards baseline so delivery can keep moving without documentation/quality gates stalling:
+
+- `CHANGELOG.md`
+- `DEPLOYMENT_GUIDE.md`
+- `GO_TO_MARKET.md`
+- `BRAND_GUIDELINES.md`
+- `SECURITY.md`
+- standards check script: `scripts/validate-standards.js`
+
+Run baseline validation:
+
+```bash
+npm run validate:standards
+```
+
+The default `npm test` command now includes this standards validation.
+
+### Website in Test (Vercel)
+
+Deploy preview/production frontend builds to Vercel (see `DEPLOYMENT_GUIDE.md` for the full deployment automation flow).
+
 ## Tech Stack
 
 - **Frontend:** Vite, React 18, TypeScript, Tailwind (shadcn/ui)

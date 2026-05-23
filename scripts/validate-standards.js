@@ -31,9 +31,16 @@ async function validateFiles() {
 }
 
 async function validatePackageScripts() {
-  const packageJson = JSON.parse(await readFile("package.json", "utf8"));
-  const scripts = packageJson.scripts ?? {};
-  return requiredPackageScripts.filter((script) => !scripts[script]);
+  try {
+    const packageJsonRaw = await readFile("package.json", "utf8");
+    const packageJson = JSON.parse(packageJsonRaw);
+    const scripts = packageJson.scripts ?? {};
+    return requiredPackageScripts.filter((script) => !scripts[script]);
+  } catch (error) {
+    console.error("❌ Unable to read or parse package.json for standards validation");
+    console.error(`   ${error instanceof Error ? error.message : String(error)}`);
+    process.exit(1);
+  }
 }
 
 async function run() {

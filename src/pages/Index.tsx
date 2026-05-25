@@ -2,6 +2,7 @@ import { useState } from "react";
 import Hero from "@/components/Hero";
 import DietaryRestrictions from "@/components/DietaryRestrictions";
 import MealPlanDisplay from "@/components/MealPlanDisplay";
+import S2MOverview from "@/components/S2MOverview";
 import { useToast } from "@/hooks/use-toast";
 import { generateMealPlan } from "@/research/generate-meal-plan";
 import type { MealPlan } from "@/research/types";
@@ -62,9 +63,9 @@ const Index = () => {
       <Hero />
       <DietaryRestrictions onGeneratePlan={onGeneratePlan} isGenerating={isGenerating} />
       <MealPlanDisplay mealPlan={mealPlan} />
+      <S2MOverview />
     </div>
   );
 };
 
 export default Index;
-

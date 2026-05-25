@@ -49,6 +49,7 @@ const Hero = () => {
             <Button 
               variant="heroOutline" 
               size="xl"
+              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
             >
               How It Works
             </Button>

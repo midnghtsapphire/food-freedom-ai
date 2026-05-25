@@ -5,6 +5,9 @@ const requiredFiles = [
   "CHANGELOG.md",
   "DEPLOYMENT_GUIDE.md",
   "GO_TO_MARKET.md",
+  "RESEARCH_ENGINE.md",
+  "ASSETS_INVENTORY.md",
+  "ARTIFACTS.md",
   "BRAND_GUIDELINES.md",
   "SECURITY.md",
 ];

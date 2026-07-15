@@ -1,5 +1,9 @@
 # Food Freedom AI
 
+
+<!-- AUTO-PACKAGE-BADGES:START -->
+
+<!-- AUTO-PACKAGE-BADGES:END -->
 AI-powered nutrition and meal planning
 
 ## Features
